@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio - Desenvolvedor Backend</title>
+    <script>
+        (function () {
+            var saved = localStorage.getItem('portfolio-theme');
+            var theme = saved === 'light' || saved === 'dark'
+                ? saved
+                : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,16 +30,49 @@
                 <span>Dev</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#inicio" class="nav-link">Início</a></li>
-                <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
-                <li><a href="#projetos" class="nav-link">Projetos</a></li>
-                <li><a href="#contato" class="nav-link">Contato</a></li>
+                <li><a href="#inicio" class="nav-link" data-i18n="nav.home">Início</a></li>
+                <li><a href="#sobre" class="nav-link" data-i18n="nav.about">Sobre</a></li>
+                <li><a href="#habilidades" class="nav-link" data-i18n="nav.skills">Habilidades</a></li>
+                <li><a href="#projetos" class="nav-link" data-i18n="nav.projects">Projetos</a></li>
+                <li><a href="#contato" class="nav-link" data-i18n="nav.contact">Contato</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <div class="lang-switcher">
+                    <button type="button" class="lang-toggle" id="lang-toggle" aria-haspopup="true" aria-expanded="false" data-i18n-aria-label="a11y.langToggle" aria-label="Selecionar idioma">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span class="lang-current" id="lang-current">PT</span>
+                    </button>
+                    <ul class="lang-menu" id="lang-menu">
+                        <li><button type="button" class="lang-option" data-lang="pt">Português</button></li>
+                        <li><button type="button" class="lang-option" data-lang="en">English</button></li>
+                        <li><button type="button" class="lang-option" data-lang="es">Español</button></li>
+                    </ul>
+                </div>
+                <button type="button" class="theme-toggle" id="theme-toggle" data-i18n-aria-label="a11y.themeToggle" aria-label="Alternar tema claro/escuro">
+                    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line x1="12" y1="2" x2="12" y2="4"></line>
+                        <line x1="12" y1="20" x2="12" y2="22"></line>
+                        <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>
+                        <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>
+                        <line x1="2" y1="12" x2="4" y2="12"></line>
+                        <line x1="20" y1="12" x2="22" y2="12"></line>
+                        <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>
+                        <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>
+                    </svg>
+                    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -54,21 +96,21 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="greeting">Olá, eu sou</span>
+                    <span class="greeting" data-i18n="hero.greeting">Olá, eu sou</span>
                     <span class="name">Julio Lima</span>
-                    <span class="role">Desenvolvedor Backend</span>
+                    <span class="role" data-i18n="hero.role">Desenvolvedor Backend</span>
                 </h1>
-                <p class="hero-description">
+                <p class="hero-description" data-i18n="hero.description">
                     Este espaço é dedicado aos meus projetos e aprendizados na área de desenvolvimento de software.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
-                    <a href="#contato" class="btn btn-secondary">Entre em Contato</a>
+                    <a href="#projetos" class="btn btn-primary" data-i18n="hero.btnProjects">Ver Projetos</a>
+                    <a href="#contato" class="btn btn-secondary" data-i18n="hero.btnContact">Entre em Contato</a>
                 </div>
             </div>
         </div>
         <div class="scroll-indicator">
-            <span>Scroll</span>
+            <span data-i18n="hero.scroll">Scroll</span>
             <div class="scroll-line"></div>
         </div>
     </section>
@@ -76,30 +118,34 @@
     <!-- Seção Sobre -->
     <section id="sobre" class="about">
         <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
+            <h2 class="section-title" data-i18n="about.title">Sobre Mim</h2>
             <div class="about-content">
+                <div class="about-visual">
+                    <div class="about-avatar">
+                        <span>JL</span>
+                    </div>
+                </div>
                 <div class="about-text">
-                    <p>
-                        Ola, Eu sou o Julio Lima, tenho 21 anos e sou estudante de Engenharia de Software. Desde cedo, 
-                        sempre fui curioso e fascinado pelo mundo da tecnologia, o que me motivou a mergulhar na programação e no desenvolvimento. 
+                    <p data-i18n="about.p1">
+                        Olá, eu sou o Julio Lima, tenho 21 anos e sou estudante de Engenharia de Software. Desde cedo,
+                        sempre fui curioso e fascinado pelo mundo da tecnologia, o que me motivou a mergulhar na programação e no desenvolvimento.
                         Atualmente, atuo como estagiário na área, onde venho adquirindo experiência prática e aprendendo a lidar com desafios do dia a dia de um desenvolvedor.
-
                     </p>
-                    <p>
+                    <p data-i18n="about.p2">
                         Aqui você vai poder conhecer o que estou construindo, acompanhar meu crescimento profissional e ver minhas experiências com programação.
                     </p>
                     <div class="about-stats">
                         <div class="stat-item">
                             <span class="stat-number">1+</span>
-                            <span class="stat-label">Anos de Experiência</span>
+                            <span class="stat-label" data-i18n="about.statYears">Anos de Experiência</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Projetos Concluídos</span>
+                            <span class="stat-number">5</span>
+                            <span class="stat-label" data-i18n="about.statProjects">Projetos</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Tecnologias Dominadas</span>
+                            <span class="stat-number">14+</span>
+                            <span class="stat-label" data-i18n="about.statTech">Tecnologias & Ferramentas</span>
                         </div>
                     </div>
                 </div>
@@ -110,31 +156,76 @@
     <!-- Seção Habilidades -->
     <section id="habilidades" class="skills">
         <div class="container">
-            <h2 class="section-title">Habilidades</h2>
+            <h2 class="section-title" data-i18n="skills.title">Habilidades</h2>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 class="skill-category-title">Linguagens</h3>
-                    <div class="skill-items">
+                <div class="skill-category skill-category-tabs">
+                    <div class="skill-tab-header">
+                        <button type="button" class="skill-tab-btn active" data-tab="backend">Backend</button>
+                        <button type="button" class="skill-tab-btn" data-tab="frontend">Frontend</button>
+                    </div>
+                    <div class="skill-items skill-tab-panel" data-tab-panel="backend">
                         <div class="skill-item">
-                            <span class="skill-name">C#</span>
+                            <div class="skill-item-label">
+                                <span class="tech-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                                        <rect x="9" y="9" width="6" height="6"></rect>
+                                        <line x1="9" y1="1" x2="9" y2="4"></line>
+                                        <line x1="15" y1="1" x2="15" y2="4"></line>
+                                        <line x1="9" y1="20" x2="9" y2="23"></line>
+                                        <line x1="15" y1="20" x2="15" y2="23"></line>
+                                        <line x1="20" y1="9" x2="23" y2="9"></line>
+                                        <line x1="20" y1="14" x2="23" y2="14"></line>
+                                        <line x1="1" y1="9" x2="4" y2="9"></line>
+                                        <line x1="1" y1="14" x2="4" y2="14"></line>
+                                    </svg>
+                                </span>
+                                <span class="skill-name">C#</span>
+                            </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="65"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">.NET</span>
+                            <div class="skill-item-label">
+                                <span class="tech-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                        <polyline points="2 17 12 22 22 17"></polyline>
+                                        <polyline points="2 12 12 17 22 12"></polyline>
+                                    </svg>
+                                </span>
+                                <span class="skill-name">.NET</span>
+                            </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="62"></div>
                             </div>
                         </div>
+                    </div>
+                    <div class="skill-items skill-tab-panel" data-tab-panel="frontend" hidden>
                         <div class="skill-item">
-                            <span class="skill-name">JavaScript/Node.js</span>
+                            <div class="skill-item-label">
+                                <span class="tech-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="16 18 22 12 16 6"></polyline>
+                                        <polyline points="8 6 2 12 8 18"></polyline>
+                                    </svg>
+                                </span>
+                                <span class="skill-name">JavaScript/Node.js</span>
+                            </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="45"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Angular</span>
+                            <div class="skill-item-label">
+                                <span class="tech-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                    </svg>
+                                </span>
+                                <span class="skill-name">Angular</span>
+                            </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="40"></div>
                             </div>
@@ -142,28 +233,139 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3 class="skill-category-title">Tecnologias & Ferramentas</h3>
+                    <h3 class="skill-category-title" data-i18n="skills.infra">Infraestrutura & Ferramentas</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">REST APIs</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">RabbitMQ</span>
-                        <span class="skill-tag">Azure</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">Microserviços</span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                            REST APIs
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                            Docker
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                            PostgreSQL
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                            SQL Server
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                            MongoDB
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                            RabbitMQ
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                            </svg>
+                            Azure
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="6" y1="3" x2="6" y2="15"></line>
+                                <circle cx="18" cy="6" r="3"></circle>
+                                <circle cx="6" cy="18" r="3"></circle>
+                                <path d="M18 9a9 9 0 0 1-9 9"></path>
+                            </svg>
+                            Git
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="18" cy="18" r="3"></circle>
+                                <circle cx="6" cy="6" r="3"></circle>
+                                <path d="M6 21V9a9 9 0 0 0 9 9"></path>
+                            </svg>
+                            CI/CD
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                            <span data-i18n="skills.tag.microservices">Microserviços</span>
+                        </span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3 class="skill-category-title">Conceitos</h3>
+                    <h3 class="skill-category-title" data-i18n="skills.concepts">Conceitos</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Arquitetura de Software</span>
-                        <span class="skill-tag">Design Patterns</span>
-                        <span class="skill-tag">SOLID</span>
-                        <span class="skill-tag">Testes Unitários</span>
-                        <span class="skill-tag">Clean Code</span>
-                        <span class="skill-tag">Scrum/Agile</span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                            <span data-i18n="skills.tag.softwareArch">Arquitetura de Software</span>
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                                <line x1="12" y1="22" x2="12" y2="15.5"></line>
+                                <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+                                <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
+                                <line x1="12" y1="2" x2="12" y2="8.5"></line>
+                            </svg>
+                            <span data-i18n="skills.tag.designPatterns">Design Patterns</span>
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                            SOLID
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span data-i18n="skills.tag.unitTests">Testes Unitários</span>
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                                <line x1="16" y1="8" x2="2" y2="22"></line>
+                                <line x1="17.5" y1="15" x2="9" y2="15"></line>
+                            </svg>
+                            <span data-i18n="skills.tag.cleanCode">Clean Code</span>
+                        </span>
+                        <span class="skill-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="23 4 23 10 17 10"></polyline>
+                                <polyline points="1 20 1 14 7 14"></polyline>
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                            </svg>
+                            <span data-i18n="skills.tag.agile">Scrum/Agile</span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -173,58 +375,67 @@
     <!-- Seção Projetos -->
     <section id="projetos" class="projects">
         <div class="container">
-            <h2 class="section-title">Projetos</h2>
-            <div class="projects-grid">
+            <h2 class="section-title" data-i18n="projects.title">Projetos</h2>
+            <div class="carousel">
+                <button type="button" class="carousel-arrow carousel-arrow-prev" data-i18n-aria-label="projects.prevAria" aria-label="Projeto anterior">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <div class="carousel-track projects-grid">
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Sistema de Autenticação e Autorização</h3>
-                        <div class="project-links">
-                            <a href="#" class="project-link" aria-label="GitHub">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg>
-                            </a>
-                            <a href="#" class="project-link" aria-label="Link Externo">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                    <polyline points="15 3 21 3 21 9"></polyline>
-                                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                                </svg>
-                            </a>
+                    <div class="project-card-top">
+                        <div class="project-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
                         </div>
+                        <span class="project-status status-done" data-i18n="status.done">Concluído</span>
                     </div>
-                    <p class="project-description">
-                        API RESTful desenvolvida com .NET Core, implementando autenticação JWT, 
+                    <h3 class="project-title" data-i18n="project1.title">Sistema de Autenticação e Autorização</h3>
+                    <p class="project-description" data-i18n="project1.desc">
+                        API RESTful desenvolvida com .NET Core, implementando autenticação JWT,
                         validação de dados e integração com banco de dados SQL Server.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">.NET</span>
-                        <span class="tech-tag">Barer Token</span>
+                        <span class="tech-tag">Bearer Token</span>
                         <span class="tech-tag">SQL Server</span>
                         <span class="tech-tag">JWT</span>
                     </div>
+                    <div class="project-footer">
+                        <a href="#" class="project-cta">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                            <span data-i18n="project.cta.code">Código</span>
+                        </a>
+                        <a href="#" class="project-cta project-cta-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            <span data-i18n="project.cta.demo">Demo</span>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">...</h3>
-                        <div class="project-links">
-                            <a href="#" class="project-link" aria-label="GitHub">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg>
-                            </a>
-                            <a href="#" class="project-link" aria-label="Link Externo">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                    <polyline points="15 3 21 3 21 9"></polyline>
-                                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                                </svg>
-                            </a>
+                    <div class="project-card-top">
+                        <div class="project-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
                         </div>
+                        <span class="project-status status-progress" data-i18n="status.progress">Em desenvolvimento</span>
                     </div>
+                    <h3 class="project-title">MercadoApp</h3>
                     <p class="project-description">
-                        em desenvolvimento
+                        ....
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">...</span>
@@ -232,27 +443,36 @@
                         <span class="tech-tag">...</span>
                         <span class="tech-tag">...</span>
                     </div>
+                    <div class="project-footer">
+                        <a href="#" class="project-cta">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                            <span data-i18n="project.cta.code">Código</span>
+                        </a>
+                        <a href="#" class="project-cta project-cta-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            <span data-i18n="project.cta.demo">Demo</span>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">...</h3>
-                        <div class="project-links">
-                            <a href="#" class="project-link" aria-label="GitHub">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg>
-                            </a>
-                            <a href="#" class="project-link" aria-label="Link Externo">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                    <polyline points="15 3 21 3 21 9"></polyline>
-                                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                                </svg>
-                            </a>
+                    <div class="project-card-top">
+                        <div class="project-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
                         </div>
+                        <span class="project-status status-progress" data-i18n="status.progress">Em desenvolvimento</span>
                     </div>
-                    <p class="project-description">
+                    <h3 class="project-title">...</h3>
+                    <p class="project-description" data-i18n="project.inProgressDesc">
                         em desenvolvimento
                     </p>
                     <div class="project-tech">
@@ -262,41 +482,168 @@
                         <span class="tech-tag">...</span>
                         <span class="tech-tag">...</span>
                     </div>
+                    <div class="project-footer">
+                        <a href="#" class="project-cta">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                            <span data-i18n="project.cta.code">Código</span>
+                        </a>
+                        <a href="#" class="project-cta project-cta-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            <span data-i18n="project.cta.demo">Demo</span>
+                        </a>
+                    </div>
                 </div>
+
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <div class="project-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                        </div>
+                        <span class="project-status status-progress" data-i18n="status.progress">Em desenvolvimento</span>
+                    </div>
+                    <h3 class="project-title">...</h3>
+                    <p class="project-description">
+                        ...
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">...</span>
+                        <span class="tech-tag">...</span>
+                        <span class="tech-tag">...</span>
+                    </div>
+                    <div class="project-footer">
+                        <a href="#" class="project-cta">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                            <span data-i18n="project.cta.code">Código</span>
+                        </a>
+                        <a href="#" class="project-cta project-cta-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            <span data-i18n="project.cta.demo">Demo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <div class="project-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <span class="project-status status-progress" data-i18n="status.progress">Em desenvolvimento</span>
+                    </div>
+                    <h3 class="project-title">...</h3>
+                    <p class="project-description">
+                        ...
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">...</span>
+                        <span class="tech-tag">...</span>
+                        <span class="tech-tag">...</span>
+                    </div>
+                    <div class="project-footer">
+                        <a href="#" class="project-cta">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                            <span data-i18n="project.cta.code">Código</span>
+                        </a>
+                        <a href="#" class="project-cta project-cta-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            <span data-i18n="project.cta.demo">Demo</span>
+                        </a>
+                    </div>
+                </div>
+                </div>
+                <button type="button" class="carousel-arrow carousel-arrow-next" data-i18n-aria-label="projects.nextAria" aria-label="Próximo projeto">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                <div class="carousel-dots" id="projects-dots"></div>
             </div>
         </div>
     </section>
 
     <!-- Seção Contato -->
     <section id="contato" class="contact">
+        <div class="contact-glow" aria-hidden="true"></div>
         <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
+            <h2 class="section-title" data-i18n="contact.title">Entre em Contato</h2>
             <div class="contact-content">
-                <p class="contact-description">
-                    Estou sempre aberto a novas oportunidades e projetos interessantes. 
+                <p class="contact-description" data-i18n="contact.desc">
+                    Estou sempre aberto a novas oportunidades e projetos interessantes.
                     Entre em contato se quiser conversar sobre tecnologia ou colaborar em algo.
                 </p>
                 <div class="contact-links">
                     <a href="#" class="contact-link" id="email-link" data-email="julio.simpplicio@gmail.com">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
+                        <span class="contact-link-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </span>
+                        <span class="contact-link-info">
+                            <span class="contact-link-title" id="email-text" data-i18n="contact.email">Email</span>
+                            <span class="contact-link-value">julio.simpplicio@gmail.com</span>
+                        </span>
+                        <svg class="contact-link-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
-                        <span id="email-text">Email</span>
                     </a>
                     <a href="https://www.linkedin.com/in/julio-slima" target="_blank" class="contact-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
+                        <span class="contact-link-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </span>
+                        <span class="contact-link-info">
+                            <span class="contact-link-title">LinkedIn</span>
+                            <span class="contact-link-value">/in/julio-slima</span>
+                        </span>
+                        <svg class="contact-link-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
-                        <span>LinkedIn</span>
                     </a>
                     <a href="https://www.github.com/julioweeb" target="_blank" class="contact-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        <span class="contact-link-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </span>
+                        <span class="contact-link-info">
+                            <span class="contact-link-title">GitHub</span>
+                            <span class="contact-link-value">@julioweeb</span>
+                        </span>
+                        <svg class="contact-link-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
-                        <span>GitHub</span>
                     </a>
                 </div>
             </div>
@@ -306,10 +653,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Julio Lima. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Julio Lima. <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
