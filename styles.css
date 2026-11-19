@@ -995,6 +995,10 @@ section {
     border-top: 1px solid var(--color-border);
 }
 
+.project-footer-links {
+    flex-wrap: wrap;
+}
+
 .project-cta {
     display: inline-flex;
     align-items: center;
