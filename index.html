@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
 </head>
 <body>
     <!-- Navegação -->
@@ -153,221 +154,74 @@
         </div>
     </section>
 
-    <!-- Seção Habilidades -->
+        <!-- Seção Habilidades -->
     <section id="habilidades" class="skills">
         <div class="container">
             <h2 class="section-title" data-i18n="skills.title">Habilidades</h2>
             <div class="skills-grid">
-                <div class="skill-category skill-category-tabs">
-                    <div class="skill-tab-header">
-                        <button type="button" class="skill-tab-btn active" data-tab="backend">Backend</button>
-                        <button type="button" class="skill-tab-btn" data-tab="frontend">Frontend</button>
-                    </div>
-                    <div class="skill-items skill-tab-panel" data-tab-panel="backend">
-                        <div class="skill-item">
-                            <div class="skill-item-label">
-                                <span class="tech-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                                        <rect x="9" y="9" width="6" height="6"></rect>
-                                        <line x1="9" y1="1" x2="9" y2="4"></line>
-                                        <line x1="15" y1="1" x2="15" y2="4"></line>
-                                        <line x1="9" y1="20" x2="9" y2="23"></line>
-                                        <line x1="15" y1="20" x2="15" y2="23"></line>
-                                        <line x1="20" y1="9" x2="23" y2="9"></line>
-                                        <line x1="20" y1="14" x2="23" y2="14"></line>
-                                        <line x1="1" y1="9" x2="4" y2="9"></line>
-                                        <line x1="1" y1="14" x2="4" y2="14"></line>
-                                    </svg>
-                                </span>
-                                <span class="skill-name">C#</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="65"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-item-label">
-                                <span class="tech-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                        <polyline points="2 17 12 22 22 17"></polyline>
-                                        <polyline points="2 12 12 17 22 12"></polyline>
-                                    </svg>
-                                </span>
-                                <span class="skill-name">.NET</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="62"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-items skill-tab-panel" data-tab-panel="frontend" hidden>
-                        <div class="skill-item">
-                            <div class="skill-item-label">
-                                <span class="tech-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="16 18 22 12 16 6"></polyline>
-                                        <polyline points="8 6 2 12 8 18"></polyline>
-                                    </svg>
-                                </span>
-                                <span class="skill-name">JavaScript/Node.js</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="45"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-item-label">
-                                <span class="tech-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                                    </svg>
-                                </span>
-                                <span class="skill-name">Angular</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="40"></div>
-                            </div>
-                        </div>
+
+                <!-- Backend -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Backend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag skill-tag--main"><i class="devicon-csharp-plain colored" aria-hidden="true"></i>C#</span>
+                        <span class="skill-tag skill-tag--main"><i class="devicon-dotnetcore-plain colored" aria-hidden="true"></i>.NET</span>
+                        <span class="skill-tag"><i class="devicon-nodejs-plain colored" aria-hidden="true"></i>Node.js</span>
+                        <span class="skill-tag">REST APIs</span>
                     </div>
                 </div>
+
+                <!-- Frontend -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag skill-tag--main"><i class="devicon-angularjs-plain colored" aria-hidden="true"></i>Angular</span>
+                        <span class="skill-tag"><i class="devicon-javascript-plain colored" aria-hidden="true"></i>JavaScript</span>
+                        <!-- Descomente só o que você consegue defender numa entrevista:
+                        <span class="skill-tag"><i class="devicon-typescript-plain colored" aria-hidden="true"></i>TypeScript</span>
+                        <span class="skill-tag"><i class="devicon-react-original colored" aria-hidden="true"></i>React</span>
+                        <span class="skill-tag"><i class="devicon-html5-plain colored" aria-hidden="true"></i>HTML5</span>
+                        <span class="skill-tag"><i class="devicon-css3-plain colored" aria-hidden="true"></i>CSS3</span>
+                        -->
+                    </div>
+                </div>
+
+                <!-- Bancos de dados -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title" data-i18n="skills.databases">Bancos de Dados</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag skill-tag--main"><i class="devicon-postgresql-plain colored" aria-hidden="true"></i>PostgreSQL</span>
+                        <span class="skill-tag"><i class="devicon-microsoftsqlserver-plain colored" aria-hidden="true"></i>SQL Server</span>
+                        <span class="skill-tag"><i class="devicon-mongodb-plain colored" aria-hidden="true"></i>MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- Infraestrutura & Ferramentas -->
                 <div class="skill-category">
                     <h3 class="skill-category-title" data-i18n="skills.infra">Infraestrutura & Ferramentas</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="2" y1="12" x2="22" y2="12"></line>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                            </svg>
-                            REST APIs
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                            </svg>
-                            Docker
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                            </svg>
-                            PostgreSQL
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                            </svg>
-                            SQL Server
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                            </svg>
-                            MongoDB
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                            </svg>
-                            RabbitMQ
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                            </svg>
-                            Azure
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="6" y1="3" x2="6" y2="15"></line>
-                                <circle cx="18" cy="6" r="3"></circle>
-                                <circle cx="6" cy="18" r="3"></circle>
-                                <path d="M18 9a9 9 0 0 1-9 9"></path>
-                            </svg>
-                            Git
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="18" cy="18" r="3"></circle>
-                                <circle cx="6" cy="6" r="3"></circle>
-                                <path d="M6 21V9a9 9 0 0 0 9 9"></path>
-                            </svg>
-                            CI/CD
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                            <span data-i18n="skills.tag.microservices">Microserviços</span>
-                        </span>
+                        <span class="skill-tag"><i class="devicon-docker-plain colored" aria-hidden="true"></i>Docker</span>
+                        <span class="skill-tag"><i class="devicon-azure-plain colored" aria-hidden="true"></i>Azure</span>
+                        <span class="skill-tag"><i class="devicon-git-plain colored" aria-hidden="true"></i>Git</span>
+                        <span class="skill-tag"><i class="devicon-rabbitmq-original colored" aria-hidden="true"></i>RabbitMQ</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag" data-i18n="skills.tag.microservices">Microserviços</span>
                     </div>
                 </div>
+
+                <!-- Conceitos -->
                 <div class="skill-category">
                     <h3 class="skill-category-title" data-i18n="skills.concepts">Conceitos</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="3" y1="9" x2="21" y2="9"></line>
-                                <line x1="9" y1="21" x2="9" y2="9"></line>
-                            </svg>
-                            <span data-i18n="skills.tag.softwareArch">Arquitetura de Software</span>
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-                                <line x1="12" y1="22" x2="12" y2="15.5"></line>
-                                <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
-                                <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
-                                <line x1="12" y1="2" x2="12" y2="8.5"></line>
-                            </svg>
-                            <span data-i18n="skills.tag.designPatterns">Design Patterns</span>
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            </svg>
-                            SOLID
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                            <span data-i18n="skills.tag.unitTests">Testes Unitários</span>
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
-                                <line x1="16" y1="8" x2="2" y2="22"></line>
-                                <line x1="17.5" y1="15" x2="9" y2="15"></line>
-                            </svg>
-                            <span data-i18n="skills.tag.cleanCode">Clean Code</span>
-                        </span>
-                        <span class="skill-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="23 4 23 10 17 10"></polyline>
-                                <polyline points="1 20 1 14 7 14"></polyline>
-                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                            </svg>
-                            <span data-i18n="skills.tag.agile">Scrum/Agile</span>
-                        </span>
+                        <span class="skill-tag" data-i18n="skills.tag.softwareArch">Arquitetura de Software</span>
+                        <span class="skill-tag" data-i18n="skills.tag.designPatterns">Design Patterns</span>
+                        <span class="skill-tag">SOLID</span>
+                        <span class="skill-tag" data-i18n="skills.tag.unitTests">Testes Unitários</span>
+                        <span class="skill-tag" data-i18n="skills.tag.cleanCode">Clean Code</span>
+                        <span class="skill-tag" data-i18n="skills.tag.agile">Scrum/Agile</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
