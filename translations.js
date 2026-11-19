@@ -1,6 +1,6 @@
 const TRANSLATIONS = {
     pt: {
-        'meta.title': 'Portfólio - Desenvolvedor Backend',
+        'meta.title': 'Portfólio - Julio Lima',
         'nav.home': 'Início',
         'nav.about': 'Sobre',
         'nav.skills': 'Habilidades',
@@ -9,7 +9,7 @@ const TRANSLATIONS = {
         'a11y.themeToggle': 'Alternar tema claro/escuro',
         'a11y.langToggle': 'Selecionar idioma',
         'hero.greeting': 'Olá, eu sou',
-        'hero.role': 'Desenvolvedor Backend',
+        'hero.role': 'Desenvolvedor de Software',
         'hero.description': 'Este espaço é dedicado aos meus projetos e aprendizados na área de desenvolvimento de software.',
         'hero.btnProjects': 'Ver Projetos',
         'hero.btnContact': 'Entre em Contato',
@@ -53,7 +53,7 @@ const TRANSLATIONS = {
         'footer.rights': 'Todos os direitos reservados.'
     },
     en: {
-        'meta.title': 'Portfolio - Backend Developer',
+        'meta.title': 'Portfolio - Software Developer',
         'nav.home': 'Home',
         'nav.about': 'About',
         'nav.skills': 'Skills',
@@ -62,7 +62,7 @@ const TRANSLATIONS = {
         'a11y.themeToggle': 'Toggle light/dark theme',
         'a11y.langToggle': 'Select language',
         'hero.greeting': "Hi, I'm",
-        'hero.role': 'Backend Developer',
+        'hero.role': 'Software Developer',
         'hero.description': 'This space is dedicated to my projects and learning journey in software development.',
         'hero.btnProjects': 'View Projects',
         'hero.btnContact': 'Get in Touch',
@@ -106,7 +106,7 @@ const TRANSLATIONS = {
         'footer.rights': 'All rights reserved.'
     },
     es: {
-        'meta.title': 'Portafolio - Desarrollador Backend',
+        'meta.title': 'Portafolio - Desarrollador de Software',
         'nav.home': 'Inicio',
         'nav.about': 'Sobre mí',
         'nav.skills': 'Habilidades',
@@ -116,7 +116,7 @@ const TRANSLATIONS = {
         'a11y.themeToggle': 'Alternar tema claro/oscuro',
         'a11y.langToggle': 'Seleccionar idioma',
         'hero.greeting': 'Hola, soy',
-        'hero.role': 'Desarrollador Backend',
+        'hero.role': 'Desarrollador de Software',
         'hero.description': 'Este espacio está dedicado a mis proyectos y aprendizajes en el desarrollo de software.',
         'hero.btnProjects': 'Ver Proyectos',
         'hero.btnContact': 'Contáctame',
